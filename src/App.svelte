@@ -1,5 +1,5 @@
 <script>
-	import Item from './components/Item/index.svelte'
+	import Item from './components/Item/Item.svelte'
 
 	const transactions = [
 		{
