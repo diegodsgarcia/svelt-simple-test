@@ -1,30 +1,54 @@
-<script lang="ts">
-	export let name: string;
+<script>
+	import Item from './components/Item/index.svelte'
+
+	const transactions = [
+		{
+			name: 'João',
+			status: 'Paga',
+			date: new Date(),
+			amount: 1000,
+		},
+		{
+			name: 'Pedro',
+			status: 'Paga',
+			date: new Date(),
+			amount: 2000,
+		},
+		{
+			name: 'Maria',
+			status: 'Recusada',
+			date: new Date(),
+			amount: 3000,	
+		},
+		{
+			name: 'Roberto',
+			status: 'Paga',
+			date: new Date(),
+			amount: 4000,
+		}
+	]
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<section>
+		{#each transactions as transaction}
+				<Item {...transaction} />
+		{/each}
+	</section>
 </main>
 
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
+		section {
+			display: flex;
+			flex-direction: column;
 		}
-	}
 </style>
+
+<svelte:head>
+	<style>
+		html, body {
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</svelte:head>
