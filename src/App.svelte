@@ -1,5 +1,6 @@
 <script>
 	import Item from './components/Item/Item.svelte'
+	import Test from './components/Test/Test.svelte'
 
 	const transactions = [
 		{
@@ -35,6 +36,7 @@
 				<Item {...transaction} />
 		{/each}
 	</section>
+	<Test { ...transactions[0] } />
 </main>
 
 <style>
@@ -46,9 +48,16 @@
 
 <svelte:head>
 	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
 		html, body {
 			margin: 0;
 			padding: 0;
+			font-family: 'Roboto Condensed', sans-serif;
+		}
+
+		.container {
+			background-color: #000;
 		}
 	</style>
 </svelte:head>

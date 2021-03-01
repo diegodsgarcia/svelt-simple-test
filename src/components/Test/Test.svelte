@@ -26,7 +26,6 @@
 </div>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
   .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -34,6 +33,6 @@
     padding: 16px;
     gap: 8px;
     box-shadow: 1px 1px 1px #a2a2a2;
-    font-family: 'Roboto Condensed', sans-serif;
+    background-color: red;
   }
 </style>

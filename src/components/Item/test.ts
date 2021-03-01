@@ -13,8 +13,8 @@ test('Should be render the component', () => {
     props: { ...transaction }
   })
 
-  // expect(screen.getByText(/joao/i)).toBeInTheDocument()
-  // expect(screen.getByText(/paga/i)).toBeInTheDocument()
-  // expect(screen.getByText('24/02/2021')).toBeInTheDocument()
-  // expect(screen.getByText('R$ 1.000,00')).toBeInTheDocument()
+  screen.getByText(/joão/i)
+  screen.getByText(/paga/i)
+  screen.getByText('24/02/2021')
+  screen.getByText('R$ 1.000,00')
 })

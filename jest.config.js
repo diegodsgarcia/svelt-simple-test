@@ -1,12 +1,13 @@
 module.exports = {
   transform: {
+    "^.+\\.ts$": "ts-jest",
+    "^.+\\.js$": "babel-jest",
     "^.+\\.svelte$": [
       "svelte-jester",
       {
         "preprocess": true
       }
     ],
-    "^.+\\.ts$": "ts-jest"
   },
   moduleFileExtensions: ["js", "ts", "svelte"],
   testPathIgnorePatterns: ["node_modules"],
