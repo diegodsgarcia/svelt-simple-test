@@ -1,48 +1,31 @@
-<script>
-	import Item from './components/Item/Item.svelte'
-	import Test from './components/Test/Test.svelte'
+<script lang="ts">
+	import { onMount } from 'svelte'
+	import Card from './components/Card/Card.svelte'
 
-	const transactions = [
-		{
-			name: 'João',
-			status: 'Paga',
-			date: new Date(),
-			amount: 1000,
-		},
-		{
-			name: 'Pedro',
-			status: 'Paga',
-			date: new Date(),
-			amount: 2000,
-		},
-		{
-			name: 'Maria',
-			status: 'Recusada',
-			date: new Date(),
-			amount: 3000,	
-		},
-		{
-			name: 'Roberto',
-			status: 'Paga',
-			date: new Date(),
-			amount: 4000,
-		}
-	]
+	import request from './service/request'
+
+	let pokemons = []
+
+	onMount(async () => {
+		pokemons = await request()
+	})
+
 </script>
 
 <main>
 	<section>
-		{#each transactions as transaction}
-				<Item {...transaction} />
+		{#each pokemons as pokemon}
+				<Card {...pokemon} />
 		{/each}
 	</section>
-	<Test { ...transactions[0] } />
 </main>
 
 <style>
 		section {
-			display: flex;
-			flex-direction: column;
+			display: grid;
+			padding: 20px;
+			grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+			gap: 10px;
 		}
 </style>
 
@@ -54,10 +37,7 @@
 			margin: 0;
 			padding: 0;
 			font-family: 'Roboto Condensed', sans-serif;
-		}
-
-		.container {
-			background-color: #000;
+			background-color: #DDDDDD;
 		}
 	</style>
 </svelte:head>
